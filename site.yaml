@@ -1,0 +1,10 @@
+---
+# Arquivo site.yml
+- hosts: localhost
+  become: yes
+
+  roles:
+    - common
+    - desktop
+    - development
+    - security

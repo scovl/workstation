@@ -1,0 +1,21 @@
+---
+# Variáveis comuns para todas as distribuições
+common_packages:
+  - curl
+  - wget
+  - git
+  - vim
+  - unzip
+  - htop
+  - tree
+  - jq
+
+# Variáveis específicas para Debian
+debian_common_packages:
+  - apt-transport-https
+  - gnupg2
+
+# Variáveis específicas para Fedora
+fedora_common_packages:
+  - dnf-plugins-core
+  - fedora-workstation-repositories

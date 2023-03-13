@@ -1,0 +1,4 @@
+---
+# Arquivo group_vars/all.yml
+user: "seu_usuario"
+install_dir: "/opt"
