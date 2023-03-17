@@ -1,21 +1,99 @@
----
-# Variáveis comuns para todas as distribuições
-common_packages:
-  - curl
-  - wget
-  - git
-  - vim
-  - unzip
-  - htop
-  - tree
-  - jq
+# development tools
 
-# Variáveis específicas para Debian
-debian_common_packages:
-  - apt-transport-https
-  - gnupg2
+# debian packages
+debian_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim
 
-# Variáveis específicas para Fedora
-fedora_common_packages:
-  - dnf-plugins-core
-  - fedora-workstation-repositories
+
+# fedora packages
+fedora_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim
+
+# archlinux packages
+archlinux_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim
+
+# rhel packages
+rhel_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+
+# centos packages
+centos_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim
+
+# freebsd packages
+freebsd_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim
+
+# openbsd packages
+openbsd_desktop_packages:
+- build-essential
+- git
+- code
+- development-tools
+- gcc
+- gcc-c++
+- make
+- python3
+- python3-pip
+- python3-virtualenv
+- vim

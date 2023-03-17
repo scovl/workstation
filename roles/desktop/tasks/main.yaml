@@ -1,48 +1,41 @@
-- name: Install desktop packages
+- name: Install desktop packages in Debian
   apt:
-    name:
-    - "{{ debian_desktop_packages }}"
+    name: "{{ debian_desktop_packages }}"
     state: present
   when: ansible_distribution == "Debian"
 
-- name: Install desktop packages
+- name: Install desktop packages in Fedora
   dnf:
-    name:
-    - "{{ fedora_desktop_packages }}"
+    name: "{{ fedora_desktop_packages }}"
     state: present
   when: ansible_distribution == "Fedora"
 
-- name: Install desktop packages
+- name: Install desktop packages in Archlinux
   pacman:
-    name:
-    - "{{ archlinux_desktop_packages }}"
+    name: "{{ archlinux_desktop_packages }}"
     state: present
   when: ansible_distribution == "Archlinux"
 
-- name: Install desktop packages
+- name: Install desktop packages in RHEL
   dnf:
-    name:
-    - "{{ rhel_desktop_packages }}"
+    name: "{{ rhel_desktop_packages }}"
     state: present
   when: ansible_distribution == "RedHat"
 
-- name: Install desktop packages
+- name: Install desktop packages in CentOS
   yum:
-    name:
-    - "{{ centos_desktop_packages }}"
+    name: "{{ centos_desktop_packages }}"
     state: present
   when: ansible_distribution == "CentOS"
 
-- name: Install desktop packages
+- name: Install desktop packages in FreeBSD
   pkgng:
-    name:
-    - "{{ freebsd_desktop_packages }}"
+    name: "{{ freebsd_desktop_packages }}"
     state: present
   when: ansible_distribution == "FreeBSD"
 
-- name: Install desktop packages
+- name: Install desktop packages in OpenBSD
   pkgin:
-    name:
-    - "{{ openbsd_desktop_packages }}"
+    name: "{{ openbsd_desktop_packages }}"
     state: present
   when: ansible_distribution == "OpenBSD"

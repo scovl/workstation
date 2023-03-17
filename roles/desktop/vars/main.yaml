@@ -1,9 +1,27 @@
-# Variáveis específicas para Debian
+# debian packages
 debian_desktop_packages:
+- p7zip-full
 
-
-# Variáveis específicas para Fedora
+# fedora packages
 fedora_desktop_packages:
+- p7zip
 
+# archlinux packages
+archlinux_desktop_packages:
+- p7zip
 
-## ansible playbook run with -yes
+# rhel packages
+rhel_desktop_packages:
+- p7zip
+
+# centos packages
+centos_desktop_packages:
+- p7zip
+
+# freebsd packages
+freebsd_desktop_packages:
+- p7zip
+
+# openbsd packages
+openbsd_desktop_packages:
+- p7zip

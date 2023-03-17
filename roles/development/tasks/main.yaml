@@ -1,73 +1,35 @@
-- name: Install development packages
+- name: Install development packages in Debian
   apt:
-    name:
-    - python3-dev
-    - python3-pip
+    name: "{{ debian_development_packages }}"
     state: present
   when: ansible_distribution == "Debian"
 
-- name: Install development packages
+- name: Install development packages in Fedora
   dnf:
-    name:
-    - gcc
-    - make
-    - python3-devel
-    - python3-pip
-    - python3-virtualenv
-    - postgres
+    name: "{{ fedora_development_packages }}"
   when: ansible_distribution == "Fedora"
 
-- name: Install development packages
+- name: Install development packages in Archlinux
   pacman:
-    name:
-    - gcc
-    - make
-    - python
-    - python-pip
-    - python-virtualenv
-    - postgresql
+    name: "{{ archlinux_development_packages }}"
   when: ansible_distribution == "Archlinux"
 
-- name: Install development packages
+- name: Install development packages in RHEL
   dnf:
-    name:
-    - gcc
-    - make
-    - python3-devel
-    - python3-pip
-    - python3-virtualenv
-    - postgres
+    name: "{{ rhel_development_packages }}"
   when: ansible_distribution == "RedHat"
 
-- name: Install development packages
+- name: Install development packages in CentOS
   yum:
-    name:
-    - gcc
-    - make
-    - python3-devel
-    - python3-pip
-    - python3-virtualenv
-    - postgres
+    name: "{{ centos_development_packages }}"
   when: ansible_distribution == "CentOS"
 
-- name: Install development packages
+- name: Install development packages in FreeBSD
   pkgng:
-    name:
-    - gcc
-    - make
-    - python
-    - py37-pip
-    - py37-virtualenv
-    - postgresql12-client
+    name: "{{ freebsd_development_packages }}"
   when: ansible_distribution == "FreeBSD"
 
-- name: Install development packages
+- name: Install development packages in OpenBSD
   pkgin:
-    name:
-    - gcc
-    - make
-    - python
-    - py37-pip
-    - py37-virtualenv
-    - postgresql12-client
+    name: "{{ openbsd_development_packages }}"
   when: ansible_distribution == "OpenBSD"
