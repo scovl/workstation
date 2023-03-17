@@ -4,4 +4,6 @@
   become: yes
   roles:
     - desktop
-    - development
+    # adicione aqui os outros roles que deseja executar
+    # exemplo: 
+    # - role: development
