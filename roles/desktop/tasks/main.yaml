@@ -1,24 +1,48 @@
 - name: Install desktop packages
   apt:
     name:
-    - "{{ lookup('file', 'files/packages.txt') }}"
+    - "{{ debian_desktop_packages }}"
     state: present
   when: ansible_distribution == "Debian"
 
 - name: Install desktop packages
   dnf:
     name:
-    - "{{ lookup('file', 'files/packages.txt') }}"
+    - "{{ fedora_desktop_packages }}"
     state: present
   when: ansible_distribution == "Fedora"
 
-- name: Copy desktop configuration file
-  template:
-    src: desktop.conf.j2
-    dest: /etc/desktop.conf
-  become: true
-  notify: restart desktop service
+- name: Install desktop packages
+  pacman:
+    name:
+    - "{{ archlinux_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "Archlinux"
 
-# import handler
-#- import_tasks: handlers/main.yaml
+- name: Install desktop packages
+  dnf:
+    name:
+    - "{{ rhel_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "RedHat"
 
+- name: Install desktop packages
+  yum:
+    name:
+    - "{{ centos_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "CentOS"
+
+- name: Install desktop packages
+  pkgng:
+    name:
+    - "{{ freebsd_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "FreeBSD"
+
+- name: Install desktop packages
+  pkgin:
+    name:
+    - "{{ openbsd_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "OpenBSD"

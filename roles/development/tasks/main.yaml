@@ -16,3 +16,58 @@
     - python3-virtualenv
     - postgres
   when: ansible_distribution == "Fedora"
+
+- name: Install development packages
+  pacman:
+    name:
+    - gcc
+    - make
+    - python
+    - python-pip
+    - python-virtualenv
+    - postgresql
+  when: ansible_distribution == "Archlinux"
+
+- name: Install development packages
+  dnf:
+    name:
+    - gcc
+    - make
+    - python3-devel
+    - python3-pip
+    - python3-virtualenv
+    - postgres
+  when: ansible_distribution == "RedHat"
+
+- name: Install development packages
+  yum:
+    name:
+    - gcc
+    - make
+    - python3-devel
+    - python3-pip
+    - python3-virtualenv
+    - postgres
+  when: ansible_distribution == "CentOS"
+
+- name: Install development packages
+  pkgng:
+    name:
+    - gcc
+    - make
+    - python
+    - py37-pip
+    - py37-virtualenv
+    - postgresql12-client
+  when: ansible_distribution == "FreeBSD"
+
+- name: Install development packages
+  pkgin:
+    name:
+    - gcc
+    - make
+    - python
+    - py37-pip
+    - py37-virtualenv
+    - postgresql12-client
+  when: ansible_distribution == "OpenBSD"

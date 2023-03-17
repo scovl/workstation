@@ -1,32 +1,38 @@
 # workstation
-Automação de instalação de todo um ambiente desktop/servidor em Ansible
+Automação de instalação de todo um ambiente desktop/servidor em Ansible. No momento o playbook suporta instalar ferramentas e serviços nas seguintes distribuições Linux:
 
+* Debian
+* Fedora
+* Arch Linux
+* RheHat Enterprise Linux
+* CentOS
 
-Para rodar o playbook localmente, siga as instruções abaixo:
+Além disso, também é possível usar este playbook para instalar e configurar ferramentas e serviços em BSDs, como FreeBSD e OpenBSD. Para rodar o playbook localmente, siga as instruções abaixo:
 
 * Certifique-se de que o Ansible está instalado na máquina local.
 * Clone o repositório do projeto em uma pasta de sua preferência.
-* Edite o arquivo `inventory/hosts` para especificar o(s) host(s) em que você deseja aplicar o playbook. Caso você deseje aplicar o playbook localmente, adicione o seguinte trecho no arquivo hosts:
-
-```bash
-[localhost]
-127.0.0.1 ansible_connection=local
-```
-
-* Edite o arquivo `inventory/group_vars/all.yml` para definir as variáveis comuns a todos os hosts.
+* Edite o arquivo `inventory/hosts` para especificar o(s) host(s) em que você deseja aplicar o playbook. Caso você deseje aplicar o playbook localmente, basta executar o playbook como já está.
+* Edite o arquivo `inventory/group_vars/all.yml` para definir as variáveis comuns a todos os hosts e serviços que você deseja instalar.
 * Edite o arquivo `site.yml` para especificar quais papéis serão executados em cada host.
-* Acesse a pasta raiz do projeto pelo terminal e execute o seguinte comando:
+
+Por fim, acesse a pasta raiz do projeto pelo terminal e execute o seguinte comando para testar o playbook:
 
 ```bash
-ansible-playbook -i iventory/hosts site.yml --check --diff
+ansible-playbook -i iventory/hosts site.yaml --check --diff
 ```
+
+Para aplicar o playbook, execute o seguinte comando:
 
 ```bash
-ansible-playbook -i iventory/hosts site.yml -bKk -vv"
+ansible-playbook -i iventory/hosts site.yaml -bKk -vv
+```
+Ou se preferir passar as credenciais diretamente, execute o seguinte comando:
+
+```bash
+ansible-playbook -i inventory/hosts.ini  -u seu_usuario -k -K -e "ansible_become_pass=senha_do_usuario" site.yaml
 ```
 
-
-Caso você deseje aplicar o playbook em um host remoto, substitua o endereço IP ou nome do host no arquivo inventory/hosts.
+> **NOTA**: para gerenciamento de senhas, você pode usar o Vault do Ansible. Para mais informações, consulte a documentação oficial do Ansible. Caso você deseje aplicar o playbook em um host remoto, substitua o endereço IP ou nome do host no arquivo inventory/hosts.
 
 ### Conclusão
 
