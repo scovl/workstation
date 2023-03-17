@@ -18,8 +18,13 @@ Para rodar o playbook localmente, siga as instruções abaixo:
 * Acesse a pasta raiz do projeto pelo terminal e execute o seguinte comando:
 
 ```bash
-ansible-playbook site.yml
+ansible-playbook -i iventory/hosts site.yml --check --diff
 ```
+
+```bash
+ansible-playbook -i iventory/hosts site.yml -bKk -vv"
+```
+
 
 Caso você deseje aplicar o playbook em um host remoto, substitua o endereço IP ou nome do host no arquivo inventory/hosts.
 

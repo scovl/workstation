@@ -1,6 +1,0 @@
----
-# Arquivo roles/desktop/handlers/main.yml
-- name: restart desktop service
-  service:
-    name: desktop
-    state: restarted

@@ -1,10 +1,7 @@
 ---
-# Arquivo site.yml
-- hosts: localhost
+- name: Configuring localhost
+  hosts: localhost
   become: yes
-
   roles:
-    - common
     - desktop
     - development
-    - security

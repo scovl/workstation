@@ -1,0 +1,18 @@
+- name: Install development packages
+  apt:
+    name:
+    - python3-dev
+    - python3-pip
+    state: present
+  when: ansible_distribution == "Debian"
+
+- name: Install development packages
+  dnf:
+    name:
+    - gcc
+    - make
+    - python3-devel
+    - python3-pip
+    - python3-virtualenv
+    - postgres
+  when: ansible_distribution == "Fedora"

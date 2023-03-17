@@ -1,0 +1,24 @@
+- name: Install desktop packages
+  apt:
+    name:
+    - "{{ lookup('file', 'files/packages.txt') }}"
+    state: present
+  when: ansible_distribution == "Debian"
+
+- name: Install desktop packages
+  dnf:
+    name:
+    - "{{ lookup('file', 'files/packages.txt') }}"
+    state: present
+  when: ansible_distribution == "Fedora"
+
+- name: Copy desktop configuration file
+  template:
+    src: desktop.conf.j2
+    dest: /etc/desktop.conf
+  become: true
+  notify: restart desktop service
+
+# import handler
+#- import_tasks: handlers/main.yaml
+
