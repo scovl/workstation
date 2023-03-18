@@ -27,7 +27,7 @@ Para aplicar o playbook, execute o seguinte comando:
 ansible-playbook -i iventory/hosts site.yaml -bKk -vv
 ```
 
-Para adicionar packages de instalação a depender da distro/OS que está usando, basta editar o arquivo `roles/packages/vars/main.yml` e adicionar o nome do pacote a ser instalado. Por exemplo, para instalar o pacote `htop` no Debian, adicione a seguinte linha:
+Para adicionar packages de instalação a depender da distro/OS que está usando, basta editar o arquivo `roles/desktop/vars/main.yml` e adicionar o nome do pacote a ser instalado. Por exemplo, para instalar o pacote `htop` no Debian, adicione a seguinte linha:
 
 ```yaml
 debian_desktop_packages:
