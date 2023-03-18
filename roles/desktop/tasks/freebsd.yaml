@@ -1,0 +1,5 @@
+- name: Install desktop packages in FreeBSD
+  pkgng:
+    name: "{{ freebsd_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "FreeBSD"

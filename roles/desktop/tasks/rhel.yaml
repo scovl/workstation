@@ -1,0 +1,5 @@
+- name: Install desktop packages in RHEL
+  dnf:
+    name: "{{ rhel_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "RedHat"
