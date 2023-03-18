@@ -1,0 +1,5 @@
+- name: Install desktop packages in OpenBSD
+  pkgin:
+    name: "{{ openbsd_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "OpenBSD"

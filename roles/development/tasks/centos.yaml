@@ -1,0 +1,5 @@
+- name: Install desktop packages in CentOS
+  yum:
+    name: "{{ centos_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "CentOS"

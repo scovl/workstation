@@ -1,35 +1,21 @@
-- name: Install development packages in Debian
-  apt:
-    name: "{{ debian_development_packages }}"
-    state: present
+# import os tasks
+- import_tasks: debian.yaml
   when: ansible_distribution == "Debian"
 
-- name: Install development packages in Fedora
-  dnf:
-    name: "{{ fedora_development_packages }}"
+- import_tasks: fedora.yaml
   when: ansible_distribution == "Fedora"
 
-- name: Install development packages in Archlinux
-  pacman:
-    name: "{{ archlinux_development_packages }}"
+- import_tasks: archlinux.yaml
   when: ansible_distribution == "Archlinux"
 
-- name: Install development packages in RHEL
-  dnf:
-    name: "{{ rhel_development_packages }}"
+- import_tasks: rhel.yaml
   when: ansible_distribution == "RedHat"
 
-- name: Install development packages in CentOS
-  yum:
-    name: "{{ centos_development_packages }}"
+- import_tasks: centos.yaml
   when: ansible_distribution == "CentOS"
 
-- name: Install development packages in FreeBSD
-  pkgng:
-    name: "{{ freebsd_development_packages }}"
+- import_tasks: freebsd.yaml
   when: ansible_distribution == "FreeBSD"
 
-- name: Install development packages in OpenBSD
-  pkgin:
-    name: "{{ openbsd_development_packages }}"
+- import_tasks: openbsd.yaml
   when: ansible_distribution == "OpenBSD"
