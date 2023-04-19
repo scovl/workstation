@@ -1,5 +1,10 @@
-- name: Install desktop packages in Debian
-  apt:
-    name: "{{ debian_desktop_packages }}"
-    state: present
-  when: ansible_distribution == "Debian"
+---
+  tasks:
+  - name: Install desktop packages in Debian
+    apt:
+      name: "{{ debian_desktop_packages }}"
+      state: present
+    when: ansible_distribution == "Debian"
+
+  - name: Importar playbook external-secrets.yaml
+    import_playbook: "contributing/external-secrets.yaml"
