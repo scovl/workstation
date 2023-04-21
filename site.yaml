@@ -3,7 +3,4 @@
   hosts: localhost
   become: yes
   roles:
-    - desktop
-    # adicione aqui os outros roles que deseja executar
-    # exemplo: 
-    # - role: development
+    - development

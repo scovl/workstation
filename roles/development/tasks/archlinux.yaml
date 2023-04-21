@@ -1,10 +1,10 @@
 ---
-  tasks:
-    - name: Install desktop packages in Archlinux
-      pacman:
-        name: "{{ archlinux_desktop_packages }}"
-        state: present
-      when: ansible_distribution == "Archlinux"
 
-    - name: Importar playbook external-secrets.yaml
-      import_playbook: "contributing/external-secrets.yaml"
+- name: Install desktop packages in Archlinux
+  pacman:
+    name: "{{ archlinux_desktop_packages }}"
+    state: present
+  when: ansible_distribution == "Archlinux"
+
+- import_tasks: "contributing/external-secrets.yaml"
+  when: ansible_distribution == "Archlinux"
