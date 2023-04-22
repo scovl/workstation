@@ -9,7 +9,19 @@ Automação de instalação de todo um ambiente desktop/servidor em Ansible. No 
 
 Além disso, também é possível usar este playbook para instalar e configurar ferramentas e serviços em BSDs, como FreeBSD e OpenBSD. Para rodar o playbook localmente, siga as instruções abaixo:
 
-* Certifique-se de que o Ansible está instalado na máquina local. Se preferir, você pode usar o script `install_ansible.sh` para instalar o Ansible em sistemas Debian, Fedora, Arch Linux, RedHat Enterprise Linux, CentOS e BSDs.
+* Certifique-se de que o Ansible está instalado na máquina local. Se preferir, você pode usar o script `install_ansible.sh` para instalar o Ansible em sistemas Debian, Fedora, Arch Linux, RedHat Enterprise Linux, CentOS e BSDs. Para usar o `install_ansible.sh`, siga as instruções abaixo:
+
+```bash
+sudo ./install_ansible.sh <user>
+```
+
+Exemplo:
+
+```bash
+
+sudo ./install_ansible.sh lobocode
+```
+
 * Clone o repositório do projeto em uma pasta de sua preferência.
 * Edite o arquivo `inventory/hosts` para especificar o(s) host(s) em que você deseja aplicar o playbook. Caso você deseje aplicar o playbook localmente, basta executar o playbook como já está.
 * Edite o arquivo `inventory/group_vars/all.yml` para definir as variáveis comuns a todos os hosts e serviços que você deseja instalar.

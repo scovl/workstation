@@ -1,4 +1,13 @@
 #!/bin/bash
+
+# Get the original user from the command line argument
+if [ -z "$1" ]; then
+    echo "Usage: sudo ./script.sh <original_user>"
+    exit 1
+fi
+
+ORIGINAL_USER=$1
+
 # check if is root
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"
@@ -23,7 +32,7 @@ elif [ -f /etc/openbsd-update.conf ]; then
     pkg_add -I ansible
 else
     # Fall back to Python pip
-    pip install ansible
+    su $ORIGINAL_USER -c "pip install ansible --user"
 fi
 
 # check if ansible is installed
